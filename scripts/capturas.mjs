@@ -27,17 +27,32 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-// Une puntos de control con un arco de coseno, para que el trazo
-// parezca una firma y no una polilínea.
-function smooth(controls, steps = 10) {
+// Catmull-Rom: el ratón de la captura sigue una curva, no una polilínea.
+function smooth(controls, steps = 14) {
+  const pts = [controls[0], ...controls, controls[controls.length - 1]];
   const out = [];
-  for (let i = 0; i < controls.length - 1; i++) {
-    const [x0, y0] = controls[i];
-    const [x1, y1] = controls[i + 1];
+  for (let i = 1; i < pts.length - 2; i++) {
+    const p0 = pts[i - 1];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[i + 2];
     for (let s = 0; s < steps; s++) {
       const t = s / steps;
-      const u = (1 - Math.cos(t * Math.PI)) / 2;
-      out.push([x0 + (x1 - x0) * u, y0 + (y1 - y0) * u]);
+      const t2 = t * t;
+      const t3 = t2 * t;
+      const x = 0.5 * (
+        2 * p1[0]
+        + (-p0[0] + p2[0]) * t
+        + (2 * p0[0] - 5 * p1[0] + 4 * p2[0] - p3[0]) * t2
+        + (-p0[0] + 3 * p1[0] - 3 * p2[0] + p3[0]) * t3
+      );
+      const y = 0.5 * (
+        2 * p1[1]
+        + (-p0[1] + p2[1]) * t
+        + (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * t2
+        + (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * t3
+      );
+      out.push([x, y]);
     }
   }
   out.push(controls[controls.length - 1]);
@@ -46,20 +61,19 @@ function smooth(controls, steps = 10) {
 
 function signatureAt(x, y, w, h) {
   const controls = [
-    [0.02, 0.62],
-    [0.08, 0.18],
-    [0.14, 0.70],
-    [0.18, 0.82],
-    [0.24, 0.22],
-    [0.32, 0.74],
-    [0.40, 0.30],
-    [0.48, 0.66],
-    [0.56, 0.46],
-    [0.68, 0.58],
-    [0.82, 0.50],
-    [0.96, 0.54],
+    [0.00, 0.78],
+    [0.07, 0.22],
+    [0.13, 0.08],
+    [0.20, 0.62],
+    [0.26, 0.84],
+    [0.34, 0.16],
+    [0.42, 0.58],
+    [0.52, 0.70],
+    [0.68, 0.64],
+    [0.86, 0.68],
+    [1.00, 0.70],
   ];
-  return smooth(controls, 8).map(([px, py]) => [x + px * w, y + py * h]);
+  return smooth(controls).map(([px, py]) => [x + px * w, y + py * h]);
 }
 
 async function stroke(page, selector, points) {
@@ -158,40 +172,28 @@ async function main() {
       [0.46, 0.250],
     ]);
     await page.click("#tool-pen");
-    await stroke(page, "#live-canvas", [
-      [0.08, 0.86],
-      [0.10, 0.80],
-      [0.12, 0.755],
-      [0.145, 0.84],
-      [0.165, 0.875],
-      [0.19, 0.78],
-      [0.215, 0.75],
-      [0.24, 0.83],
-      [0.265, 0.87],
-      [0.295, 0.79],
-      [0.325, 0.825],
-      [0.365, 0.84],
-      [0.40, 0.855],
-    ]);
-    await sleep(150);
+    await stroke(page, "#live-canvas", signatureAt(0.085, 0.768, 0.20, 0.095));
+    await page.click("#date-btn");
+    await sleep(180);
+    await page.evaluate(() => {
+      const st = window.tinta.getState();
+      const items = st.ink[st.pageIndex] || [];
+      const text = items.find((item) => item.type === "text");
+      if (text) {
+        text.x = 0.30;
+        text.y = 0.808;
+        text.w = 0.20;
+      }
+      st.selectedId = null;
+      setTool("pen");
+      paintInkDisplay();
+    });
     await shot(page, "02-editor.png");
 
     await page.click("#sign-btn");
     await page.waitForSelector("#pad-dialog[open]");
     await sleep(250);
-    await stroke(page, "#pad-canvas", [
-      [0.16, 0.62],
-      [0.20, 0.42],
-      [0.25, 0.58],
-      [0.29, 0.36],
-      [0.34, 0.66],
-      [0.40, 0.44],
-      [0.46, 0.58],
-      [0.52, 0.50],
-      [0.60, 0.54],
-      [0.70, 0.52],
-      [0.78, 0.56],
-    ]);
+    await stroke(page, "#pad-canvas", signatureAt(0.12, 0.22, 0.64, 0.40));
     await sleep(150);
     await shot(page, "03-firma.png");
     await page.click("#pad-close");
