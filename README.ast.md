@@ -113,6 +113,10 @@ y abre <http://127.0.0.1:8765/>. Nel navegador el botón diz **Descargar** en ve
 
 [`examples/autorizacion.pdf`](examples/autorizacion.pdf) ye un impresu de dos páxines, con campos, pa probar. Nun autoriza a naide y nun tien valor.
 
+<p align="center">
+  <img src="screenshots/04-campos.png" width="720" alt="L'impresu d'exemplu col nome, el documentu, la fecha y la caxella enllenaos">
+</p>
+
 ## Desendolcu
 
 ```bash

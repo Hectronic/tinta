@@ -111,6 +111,10 @@ y abre <http://127.0.0.1:8765/>. En el navegador el botón dice **Descargar** en
 
 [`examples/autorizacion.pdf`](examples/autorizacion.pdf) es un impreso de dos páginas, con campos, para probar. No autoriza a nadie y no tiene valor.
 
+<p align="center">
+  <img src="screenshots/04-campos.png" width="720" alt="El impreso de ejemplo con el nombre, el documento, la fecha y la casilla rellenados">
+</p>
+
 ## Desarrollo
 
 ```bash

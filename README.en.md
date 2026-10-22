@@ -113,6 +113,10 @@ then open <http://127.0.0.1:8765/>. In the browser the button says **Descargar**
 
 [`examples/autorizacion.pdf`](examples/autorizacion.pdf) is a two-page sample form, with fields. It authorizes nobody and has no legal value.
 
+<p align="center">
+  <img src="screenshots/04-campos.png" width="720" alt="The sample form with name, document, date and checkbox filled in">
+</p>
+
 ## Development
 
 ```bash
