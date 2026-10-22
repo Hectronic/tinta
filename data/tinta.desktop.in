@@ -1,0 +1,27 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Tinta
+GenericName=PDF editor
+GenericName[es]=Editor de PDF
+GenericName[ast]=Editor de PDF
+Comment=Sign, write and fill PDFs on your computer
+Comment[es]=Firmar, escribir y rellenar PDFs sin que salgan del equipo
+Comment[ast]=Roblar, escribir y enllenar PDFs ensin que salgan del equipu
+Exec=@BIN@ %f
+Icon=tinta
+Terminal=false
+Categories=Office;Graphics;
+MimeType=application/pdf;
+StartupWMClass=tinta
+StartupNotify=true
+Keywords=pdf;sign;signature;editor;form;annotate;
+Keywords[es]=pdf;firma;firmar;editor;formulario;anotar;
+Keywords[ast]=pdf;robla;roblar;firma;editor;formulariu;
+Actions=example;
+
+[Desktop Action example]
+Name=Open the example
+Name[es]=Abrir el ejemplo
+Name[ast]=Abrir l'exemplu
+Exec=@BIN@ @DATA@/examples/autorizacion.pdf

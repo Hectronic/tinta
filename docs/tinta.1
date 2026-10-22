@@ -1,0 +1,47 @@
+.TH TINTA 1 "22 de octubre de 2026" "Tinta 1.0.0" "Manual de Tinta"
+.SH NOMBRE
+tinta \- editor visual de PDF
+.SH SINOPSIS
+.B tinta
+[\fIopción\fR] [\fIarchivo.pdf\fR]
+.SH DESCRIPCIÓN
+.B Tinta
+abre un PDF en una ventana de escritorio para firmarlo a mano, escribir,
+resaltar, tapar una zona o rellenar sus campos. El archivo no se envía a
+ningún servidor.
+.PP
+La firma es un dibujo. No es una firma electrónica cualificada, ni un
+certificado, ni una firma PAdES.
+.SH OPCIONES
+.TP
+.BR \-h ", " \-\-help
+Muestra la ayuda y sale.
+.TP
+.B \-\-version
+Muestra la versión y sale.
+.TP
+.B \-\-self-test
+Abre el editor, comprueba que cargan PDF.js y pdf-lib, y sale.
+Pensado para pruebas, no para el uso diario.
+.SH ARCHIVOS
+.TP
+.I ~/.local/bin/tinta
+Ejecutable, si se instaló para el usuario.
+.TP
+.I ~/.local/share/tinta/
+Editor, icono y librerías.
+.TP
+.I ~/.local/share/applications/tinta.desktop
+Entrada del menú de aplicaciones. También asocia Tinta con los PDF.
+.SH "VÉASE TAMBIÉN"
+El manual completo está en
+.I docs/manual.es.md
+del código fuente.
+.UR https://github.com/Hectronic/tinta
+https://github.com/Hectronic/tinta
+.UE
+.SH AUTOR
+Hector Alvarez.
+.SH LICENCIA
+GNU GPL versión 3 o posterior. El texto está en el archivo LICENSE.
+PDF.js se incluye bajo la Apache License 2.0 y pdf-lib bajo la licencia MIT.

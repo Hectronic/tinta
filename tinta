@@ -1,0 +1,24 @@
+#!/bin/sh
+# Tinta — editor visual de PDF.
+# Copyright (C) 2026 Hector Alvarez
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+set -eu
+
+SOURCE=$0
+while [ -L "$SOURCE" ]; do
+  DIR=$(CDPATH= cd -- "$(dirname -- "$SOURCE")" && pwd)
+  SOURCE=$(readlink "$SOURCE")
+  case $SOURCE in
+    /*) ;;
+    *) SOURCE=$DIR/$SOURCE ;;
+  esac
+done
+ROOT=$(CDPATH= cd -- "$(dirname -- "$SOURCE")" && pwd)
+
+if ! command -v python3 >/dev/null 2>&1; then
+  echo "Tinta necesita python3." >&2
+  exit 1
+fi
+
+exec python3 "$ROOT/tinta.py" "$@"

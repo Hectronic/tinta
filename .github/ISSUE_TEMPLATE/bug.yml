@@ -1,0 +1,29 @@
+name: Fallo
+description: Algo no funciona como debería
+labels: ["bug"]
+body:
+  - type: textarea
+    id: que
+    attributes:
+      label: Qué ocurre
+      description: Qué esperabas y qué pasó.
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Cómo reproducirlo
+      description: Los pasos, y si el PDF se puede compartir. No adjuntes documentos con datos reales.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versión
+      description: La salida de `tinta --version`.
+      placeholder: "1.0.0"
+  - type: input
+    id: sistema
+    attributes:
+      label: Sistema
+      placeholder: "Ubuntu 24.04, GNOME, Wayland"

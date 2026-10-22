@@ -1,0 +1,15 @@
+name: Idea
+description: Una mejora o una herramienta que falta
+labels: ["idea"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Qué te gustaría poder hacer
+    validations:
+      required: true
+  - type: textarea
+    id: porque
+    attributes:
+      label: Para qué
+      description: El caso concreto. Un PDF de ejemplo sin datos reales ayuda.

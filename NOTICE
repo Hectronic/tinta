@@ -1,0 +1,29 @@
+Tinta
+Copyright (C) 2026 Hector Alvarez
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+The GNU GPL does not apply to the third-party libraries in vendor/.
+Those files keep their own licenses. See vendor/README.md.
+
+  vendor/pdf.min.js
+  vendor/pdf.worker.min.js
+    PDF.js 3.11.174
+    Copyright 2023 Mozilla Foundation
+    Apache License, Version 2.0
+    https://github.com/mozilla/pdf.js
+
+  vendor/pdf-lib.min.js
+    pdf-lib 1.17.1
+    Copyright (c) 2019 Andrew Dillon
+    MIT License
+    https://github.com/Hopding/pdf-lib
+
+    The pdf-lib build also includes Microsoft code under the
+    Apache License, Version 2.0. That notice is at the top of
+    vendor/pdf-lib.min.js.
+
+License texts: vendor/LICENSES/

@@ -1,0 +1,6 @@
+* text=auto eol=lf
+vendor/** linguist-vendored
+*.png binary
+*.pdf binary
+tinta text eol=lf
+install.sh text eol=lf

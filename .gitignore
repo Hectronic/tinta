@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+*.swp
+*~
+.cache/
+build/
+dist/
+.venv/
+node_modules/

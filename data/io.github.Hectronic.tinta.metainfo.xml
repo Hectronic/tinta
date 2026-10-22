@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.Hectronic.tinta</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Tinta</name>
+  <summary>Sign, write and fill PDFs on your computer</summary>
+  <summary xml:lang="es">Firmar, escribir y rellenar PDFs en el equipo</summary>
+  <summary xml:lang="ast">Roblar, escribir y enllenar PDFs nel equipu</summary>
+  <developer_name>Hector Alvarez</developer_name>
+  <launchable type="desktop-id">tinta.desktop</launchable>
+  <provides>
+    <binary>tinta</binary>
+  </provides>
+  <url type="homepage">https://github.com/Hectronic/tinta</url>
+  <url type="bugtracker">https://github.com/Hectronic/tinta/issues</url>
+  <url type="vcs-browser">https://github.com/Hectronic/tinta</url>
+  <description>
+    <p>
+      Tinta is a visual PDF editor. Sign by hand, write on the page, highlight,
+      cover a spot and fill in form fields. The file stays on the computer.
+    </p>
+    <p>
+      A mark made in Tinta is a drawing. It is not a qualified electronic
+      signature and it does not use a certificate.
+    </p>
+    <p xml:lang="es">
+      Tinta es un editor visual de PDF. Firma a mano, escribe en la página,
+      resalta, tapa una zona y rellena campos de formulario. El archivo se
+      queda en el equipo.
+    </p>
+    <p xml:lang="es">
+      Lo que se dibuja es una firma manuscrita. No es una firma electrónica
+      cualificada y no usa certificado.
+    </p>
+    <p xml:lang="ast">
+      Tinta ye un editor visual de PDF. Robla a mano, escribe na páxina,
+      resalta, tapa una zona y enllena campos de formulariu. El ficheru
+      queda nel equipu.
+    </p>
+    <p xml:lang="ast">
+      Lo que se dibuxa ye una robla manuscrita. Nun ye una firma electrónica
+      cualificada y nun usa certificáu.
+    </p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Writing and signing a PDF</caption>
+      <caption xml:lang="es">Escribir y firmar un PDF</caption>
+      <caption xml:lang="ast">Escribir y roblar un PDF</caption>
+      <image type="source">https://raw.githubusercontent.com/Hectronic/tinta/main/screenshots/02-editor.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Welcome</caption>
+      <caption xml:lang="es">Inicio</caption>
+      <caption xml:lang="ast">Aniciu</caption>
+      <image type="source">https://raw.githubusercontent.com/Hectronic/tinta/main/screenshots/01-inicio.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Filled form fields</caption>
+      <caption xml:lang="es">Campos rellenos</caption>
+      <caption xml:lang="ast">Campos enllenaos</caption>
+      <image type="source">https://raw.githubusercontent.com/Hectronic/tinta/main/screenshots/04-campos.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Signature pad</caption>
+      <caption xml:lang="es">Recuadro de firma</caption>
+      <caption xml:lang="ast">Recuadru de robla</caption>
+      <image type="source">https://raw.githubusercontent.com/Hectronic/tinta/main/screenshots/03-firma.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="1.0.0" date="2026-10-22"/>
+  </releases>
+</component>

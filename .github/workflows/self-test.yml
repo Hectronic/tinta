@@ -1,0 +1,21 @@
+name: self-test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  editor:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dependencias
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-gi gir1.2-gtk-3.0 gir1.2-webkit2-4.1 xvfb
+      - name: Ayuda y versión
+        run: |
+          python3 tinta.py --help
+          python3 tinta.py --version
+      - name: El editor carga
+        run: xvfb-run -a python3 tinta.py --self-test
